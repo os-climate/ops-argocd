@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opf-app-of-apps-osc-cl3
+spec:
+  destination:
+    namespace: openshift-gitops
+    name: in-cluster 
+  project: default
+  source:
+    path: argocd/overlays/projects/base
+    repoURL: https://github.com/os-climate/ops-argocd
+    targetRevision: HEAD
