@@ -1,4 +1,5 @@
 admin.enabled=true
+kustomize.buildOptions=--enable-alpha-plugins
 url=https://openshift-gitops-server-openshift-gitops.apps.osc-cl3.eqcq.p1.openshiftapps.com
 users.anonymous.enabled=false
 statusbadge.enabled=true

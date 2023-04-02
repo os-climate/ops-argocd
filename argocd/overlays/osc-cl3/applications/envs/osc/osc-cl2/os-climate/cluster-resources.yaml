@@ -5,7 +5,6 @@ metadata:
 spec:
   destination:
     name: osc-cl2
-    namespace: open-cluster-management-agent
   project: os-climate
   source:
     path: cluster-scope/overlays/osc/osc-cl2

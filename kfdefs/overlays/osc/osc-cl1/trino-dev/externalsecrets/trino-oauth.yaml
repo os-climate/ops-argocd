@@ -4,7 +4,7 @@ metadata:
   name: trino-oauth
 spec:
   secretStoreRef:
-    name: opf-vault-store
+    name: osc-vault-store
     kind: SecretStore
   target:
     name: trino-oauth

@@ -1,7 +1,7 @@
 kind: OperatorConfig
 apiVersion: operator.external-secrets.io/v1alpha1
 metadata:
-  name: opf
+  name: osc
   namespace: external-secrets-operator
 spec:
   affinity: {}

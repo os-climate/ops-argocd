@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reloader
+spec:
+  project: os-climate
+  source:
+    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    targetRevision: setup-argocd-and-vault
+    path: reloader/overlays/osc/osc-cl1
+  destination:
+    name: osc-cl1
+    namespace: reloader
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false

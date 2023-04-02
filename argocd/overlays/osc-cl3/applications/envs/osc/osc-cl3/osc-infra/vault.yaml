@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+spec:
+  destination:
+    name: in-cluster
+    namespace: openshift-gitops
+  project: osc-infra
+  source:
+    path: vault/overlays/osc/osc-cl3
+    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    targetRevision: setup-argocd-and-vault
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - Validate=false

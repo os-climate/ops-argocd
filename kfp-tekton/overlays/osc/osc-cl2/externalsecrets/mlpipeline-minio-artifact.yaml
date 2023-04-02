@@ -4,7 +4,7 @@ metadata:
   name: mlpipeline-minio-artifact
 spec:
   secretStoreRef:
-    name: opf-vault-store
+    name: osc-vault-store
     kind: SecretStore
   target:
     name: mlpipeline-minio-artifact

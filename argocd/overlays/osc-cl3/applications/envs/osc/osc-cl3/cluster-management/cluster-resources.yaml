@@ -5,7 +5,6 @@ metadata:
 spec:
   destination:
     name: in-cluster
-    namespace: open-cluster-management-agent
   project: cluster-management
   source:
     path: cluster-scope/overlays/osc/osc-cl3

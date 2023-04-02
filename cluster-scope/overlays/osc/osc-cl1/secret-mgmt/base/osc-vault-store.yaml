@@ -1,0 +1,16 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: osc-vault-store
+spec:
+  provider:
+    vault:
+      auth:
+        kubernetes:
+          mountPath: osc-cl1-k8s
+          role: osc-ops
+          serviceAccountRef:
+            name: vault-secret-fetcher
+      path: k8s_secrets
+      server: 'https://vault-ui-vault.apps.osc-cl3.eqcq.p1.openshiftapps.com/'
+      version: v2

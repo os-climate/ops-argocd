@@ -4,7 +4,7 @@ metadata:
   name: superset-custom
 spec:
   secretStoreRef:
-    name: opf-vault-store
+    name: osc-vault-store
     kind: SecretStore
   target:
     name: superset-custom

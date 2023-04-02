@@ -2,17 +2,17 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   labels:
-    app.kubernetes.io/instance: opf
+    app.kubernetes.io/instance: osc
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
     helm.sh/chart: vault-0.18.0
-  name: opf-vault-discovery-rolebinding
+  name: osc-vault-discovery-rolebinding
   namespace: vault
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: opf-vault-discovery-role
+  name: osc-vault-discovery-role
 subjects:
   - kind: ServiceAccount
-    name: opf-vault
+    name: osc-vault
     namespace: vault

@@ -20,7 +20,7 @@ patchesStrategicMerge:
   - groups/openshift-operators-view.yaml
   - groups/pachyderm-admins.yaml
   - groups/seldon-admin.yaml
-  - operators.coreos.com/patches/nfd-sub-patch.yaml
+  # - operators.coreos.com/patches/nfd-sub-patch.yaml
 resources:
 - ../../../base/core/configmaps/cluster-monitoring-config
 - ../../../base/core/configmaps/user-workload-monitoring-config
@@ -36,14 +36,10 @@ resources:
 - ../../../base/core/namespaces/odh-superset
 - ../../../base/core/namespaces/odh-trino
 - ../../../base/core/namespaces/openmetadata
-- ../../../base/core/namespaces/openshift-nfd
 - ../../../base/core/namespaces/openshift-operators
-- ../../../base/core/namespaces/opf-monitoring
 - ../../../base/core/namespaces/nvidia-gpu-operator
 - ../../../base/core/namespaces/sostrades
 - ../../../base/core/namespaces/aicos-osc-demo
-- ../../../base/operators.coreos.com/operatorgroups/openshift-nfd
-- ../../../base/operators.coreos.com/subscriptions/nfd
 - ../../../base/operators.coreos.com/subscriptions/strimzi-global-operator
 - ../../../base/config.openshift.io/oauths/cluster
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
@@ -57,6 +53,7 @@ resources:
 - ../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../base/rbac.authorization.k8s.io/clusterroles/pytorchjobs-create-aggregate-to-admin
 - ../../../base/rbac.authorization.k8s.io/clusterroles/strimzi-aggregate-to-admin
+- ../../../base/user.openshift.io/groups/aicos-osc-admins
 - ../../../base/user.openshift.io/groups/cluster-admins
 - ../../../base/user.openshift.io/groups/cluster-readers
 - ../../../base/user.openshift.io/groups/inception-admins
@@ -70,20 +67,21 @@ resources:
 - ../../../base/user.openshift.io/groups/pachyderm-admins
 - ../../../base/user.openshift.io/groups/seldon-admin
 - ../../../base/user.openshift.io/groups/sostrades
-- ../../../base/user.openshift.io/groups/aicos-osc-admins
 - ../../../bundles/external-secrets-operator
 - ../../../bundles/kepler
 - ../../../bundles/grafana-operator
 - ../../../bundles/kfp-tekton
+# - ../../../bundles/nfd
+- ../../../bundles/opf-monitoring
 - ../../../bundles/opendatahub-operator-manual
 - ../../../bundles/openshift-pipelines
 - ../../../bundles/pachyderm-operator
 - ../../../bundles/reloader
 - apiserver
-# - externalsecrets
+- externalsecrets
 - ingresscontroller
 - machinesets
-- nodefeaturediscovery
+# - nodefeaturediscovery
 - operators.coreos.com/operatorgroups/nvidia-gpu-operator
 - operators.coreos.com/subscriptions/nvidia-gpu-operator
 - machineconfiguration.openshift.io/machineconfigs/kepler
@@ -91,4 +89,4 @@ resources:
 - machineconfiguration.openshift.io/containerruntimeconfigs/trino
 - machineconfiguration.openshift.io/machineconfigpools
 - nvidia-gpu
-# - secret-mgmt
+- secret-mgmt
