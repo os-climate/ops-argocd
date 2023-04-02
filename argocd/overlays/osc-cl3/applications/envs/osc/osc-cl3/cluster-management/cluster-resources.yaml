@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-resources
+spec:
+  destination:
+    name: in-cluster
+    namespace: open-cluster-management-agent
+  project: cluster-management
+  source:
+    path: cluster-scope/overlays/osc/osc-cl3
+    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    targetRevision: setup-argocd-and-vault
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openmetadata
+  annotations:
+    op1st/onboarding-issue: "https://github.com/operate-first/apps/issues/1969"
+spec: {}

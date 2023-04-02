@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dex-secondary
+spec:
+  destination:
+    name: osc-cl1
+    namespace: dex-secondary
+  project: os-climate
+  source:
+    path: dex/overlays/osc/osc-cl1-secondary
+    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    targetRevision: setup-argocd-and-vault
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false
