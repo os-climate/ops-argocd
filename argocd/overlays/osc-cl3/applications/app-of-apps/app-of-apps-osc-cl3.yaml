@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-osc-cl3
+spec:
+  destination:
+    namespace: openshift-gitops
+    name: in-cluster 
+  project: osc-infra
+  source:
+    path: argocd/overlays/osc-cl3/applications/envs/osc/osc-cl3
+    # repoURL: https://github.com/os-climate/ops-argocd.git
+    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    targetRevision: setup-argocd-and-vault
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

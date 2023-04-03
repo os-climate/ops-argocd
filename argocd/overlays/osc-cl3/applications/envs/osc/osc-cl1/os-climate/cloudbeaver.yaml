@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudbeaver
+spec:
+  destination:
+    name: osc-cl1
+    namespace: odh-trino
+  project: os-climate
+  source:
+    path: cloudbeaver/overlays/osc/osc-cl1
+    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    targetRevision: setup-argocd-and-vault
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false
