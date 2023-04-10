@@ -1,0 +1,65 @@
+blunderbuss:
+  max_request_count: 2
+  use_status_availability: true
+
+label:
+  additional_labels:
+    - community/discussion
+    - community/group-programming
+    - community/maintenance
+    - community/question
+    - epic
+    - hacktoberfest
+    - hacktoberfest-accepted
+    - kind/cleanup
+    - kind/demo
+    - kind/deprecation
+    - kind/documentation
+    - kind/question
+    - tide/merge-method-merge
+    - tide/merge-method-rebase
+    - tide/merge-method-squash
+    - triage/accepted
+    - triage/duplicate
+    - triage/needs-information
+    - triage/not-reproducible
+    - triage/unresolved
+    - lifecycle/submission-accepted
+    - lifecycle/submission-rejected
+
+external_plugins:
+  os-climate:
+    - name: needs-rebase
+      events:
+        - issue_comment
+        - pull_request
+
+lgtm:
+  - repos:
+      - os-climate
+      
+approve:
+  - repos:
+      - os-climate
+    require_self_approval: true
+    ignore_review_state: false
+    lgtm_acts_as_approve: false
+
+plugins:
+  os-climate:
+    plugins:
+      - approve
+      - assign
+      - blockade
+      - blunderbuss
+      - help
+      - hold
+      - label
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - transfer-issue
+      - trigger
+      - verify-owners
+      - wip

@@ -6,3 +6,4 @@ resources:
 - openshift-logging
 - openshift-ingress
 - openshift-monitoring
+- osc-ci-prow

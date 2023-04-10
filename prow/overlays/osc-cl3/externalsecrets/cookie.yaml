@@ -1,0 +1,14 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: cookie
+spec:
+  secretStoreRef:
+    name: osc-vault-store
+    kind: SecretStore
+  target:
+    name: cookie
+  refreshInterval: "1h"
+  dataFrom:
+    - extract:
+        key: osc/osc-cl3/osc-ci-prow/cookie
