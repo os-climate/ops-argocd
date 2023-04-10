@@ -1,12 +1,12 @@
 plank:
   report_templates:
-    "*": "[Full PR test history](https://prow.osc-cl3.eqcq.p1.openshiftapps.com/pr-history?org={{.Spec.Refs.Org}}&repo={{.Spec.Refs.Repo}}&pr={{with index .Spec.Refs.Pulls 0}}{{.Number}}{{end}}). [Your PR dashboard](https://prow.osc-cl3.eqcq.p1.openshiftapps.com/pr?query=is%3Apr%20state%3Aopen%20author%3A{{with index .Spec.Refs.Pulls 0}}{{.Author}}{{end}}). Please help us and [open an issue](https://github.com/{{.Spec.Refs.Org}}/{{.Spec.Refs.Repo}}/issues?q=is:issue+is:open) when you hit one in your PR."
+    "*": "[Full PR test history](https://prow.apps.osc-cl3.eqcq.p1.openshiftapps.com/pr-history?org={{.Spec.Refs.Org}}&repo={{.Spec.Refs.Repo}}&pr={{with index .Spec.Refs.Pulls 0}}{{.Number}}{{end}}). [Your PR dashboard](http://prow.apps.osc-cl3.eqcq.p1.openshiftapps.com/pr?query=is%3Apr%20state%3Aopen%20author%3A{{with index .Spec.Refs.Pulls 0}}{{.Author}}{{end}}). Please help us and [open an issue](https://github.com/{{.Spec.Refs.Org}}/{{.Spec.Refs.Repo}}/issues?q=is:issue+is:open) when you hit one in your PR."
   job_url_prefix_config:
-    "*": https://prow.osc-cl3.eqcq.p1.openshiftapps.com/view/
+    "*": http://prow.apps.osc-cl3.eqcq.p1.openshiftapps.com/view/
   default_decoration_configs:
     "*":
       gcs_configuration:
-        bucket: s3://prow-c2ac1283-86c7-4ab4-babc-a07c8c4f1f79/prow-logs
+        bucket: s3://prow-storage/prow-logs
         path_strategy: explicit
       s3_credentials_secret: s3-credentials
       ssh_key_secrets:
@@ -94,14 +94,14 @@ deck:
         required_files:
           - ^podinfo\.json$
   additional_allowed_buckets:
-    - prow
+    - prow-storage
   tide_update_period: 1s
 
 tide:
   sync_period: 2m
 
   pr_status_base_urls:
-    "*": https://prow.osc-cl3.eqcq.p1.openshiftapps.com/pr
+    "*": http://prow.apps.osc-cl3.eqcq.p1.openshiftapps.com/pr
 
   merge_method:
     os-climate: merge

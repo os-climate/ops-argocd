@@ -40,6 +40,7 @@ resources:
 - ../../../base/core/namespaces/nvidia-gpu-operator
 - ../../../base/core/namespaces/sostrades
 - ../../../base/core/namespaces/aicos-osc-demo
+- ../../../base/core/serviceaccounts/argocd-manager
 - ../../../base/operators.coreos.com/subscriptions/strimzi-global-operator
 - ../../../base/config.openshift.io/oauths/cluster
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator

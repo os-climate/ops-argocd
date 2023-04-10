@@ -52,7 +52,7 @@ spec:
       serviceAccountName: "tide"
       containers:
         - name: tide
-          image: tide:latest
+          image: gcr.io/k8s-prow/tide:latest
           args:
             - --dry-run=false
             - --config-path=/etc/config/config.yaml
@@ -61,8 +61,8 @@ spec:
             - --github-endpoint=https://api.github.com
             - --github-graphql-endpoint=http://ghproxy/graphql
             - --s3-credentials-file=/etc/s3-credentials/service-account.json
-            - --status-path=s3://prow/tide/tide-status
-            - --history-uri=s3://prow/tide/tide-history.json
+            - --status-path=s3://prow-storage/tide/tide-status
+            - --history-uri=s3://prow-storage/tide/tide-history.json
           ports:
             - name: main
               containerPort: 8888

@@ -3,10 +3,9 @@ apiVersion: route.openshift.io/v1
 metadata:
   name: deck
   annotations:
-    kubernetes.io/tls-acme: "true"
     haproxy.router.openshift.io/timeout: 45s
 spec:
-  host: prow.osc-cl3.eqcq.p1.openshiftapps.com
+  host: prow.apps.osc-cl3.eqcq.p1.openshiftapps.com
   to:
     kind: Service
     name: deck
@@ -19,10 +18,9 @@ apiVersion: route.openshift.io/v1
 metadata:
   name: hook
   annotations:
-    kubernetes.io/tls-acme: "true"
     haproxy.router.openshift.io/timeout: 45s
 spec:
-  host: prow.osc-cl3.eqcq.p1.openshiftapps.com
+  host: prow.apps.osc-cl3.eqcq.p1.openshiftapps.com
   path: /hook
   to:
     kind: Service

@@ -5,8 +5,8 @@ metadata:
 spec:
   project: os-climate
   source:
-    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
-    targetRevision: setup-argocd-and-vault
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
     path: reloader/overlays/osc/osc-cl2
   destination:
     name: osc-cl2

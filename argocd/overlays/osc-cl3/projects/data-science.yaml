@@ -7,9 +7,11 @@ metadata:
 spec:
   destinations:
     - namespace: 'ds-*'
-      server: 'https://api.smaug.na.operate-first.cloud:6443'
-    - namespace: 'opf-argo'
-      server: 'https://api.smaug.na.operate-first.cloud:6443'
+      server: 'https://api.odh-cl1.apps.os-climate.org:6443'
+    - namespace: 'ds-*'
+      server: 'https://api.odh-cl2.apps.os-climate.org:6443'
+    - namespace: 'openshift-gitops'
+      server: 'https://api.osc-cl3.eqcq.p1.openshiftapps.com:6443'
   sourceRepos:
     - '*'
   roles:
@@ -25,4 +27,4 @@ spec:
         - p, proj:data-science:project-admin, applications, action/*, data-science/*, allow
       groups:
         - data-science
-        - operate-first
+        - osc

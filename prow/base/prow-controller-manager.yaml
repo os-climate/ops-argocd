@@ -99,7 +99,7 @@ spec:
             - --github-endpoint=http://ghproxy
             - --github-endpoint=https://api.github.com
             - --enable-controller=plank
-          image: prow-controller-manager:latest
+          image: gcr.io/k8s-prow/prow-controller-manager:latest
           ports:
             - name: metrics
               containerPort: 9090

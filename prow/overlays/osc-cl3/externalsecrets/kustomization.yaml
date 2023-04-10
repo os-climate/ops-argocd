@@ -6,5 +6,5 @@ resources:
 - github-token.yaml
 - hmac-token.yaml
 - oauth-token.yaml
-# - s3-credentials.yaml
+- s3-credentials.yaml
 - ssh-secret.yaml

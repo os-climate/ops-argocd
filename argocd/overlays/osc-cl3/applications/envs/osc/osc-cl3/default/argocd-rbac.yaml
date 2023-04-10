@@ -9,8 +9,8 @@ spec:
   project: default
   source:
     path: argocd/overlays/osc-cl3/rbac
-    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
-    targetRevision: setup-argocd-and-vault
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true

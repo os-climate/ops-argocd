@@ -48,7 +48,7 @@ spec:
       terminationGracePeriodSeconds: 180
       containers:
         - name: statusreconciler
-          image: status-reconciler:latest
+          image: gcr.io/k8s-prow/status-reconciler:latest
           args:
             - --dry-run=false
             - --continue-on-error=true
@@ -58,7 +58,7 @@ spec:
             - --github-endpoint=http://ghproxy
             - --github-endpoint=https://api.github.com
             - --s3-credentials-file=/etc/s3-credentials/service-account.json
-            - --status-path=s3://prow/status-reconciler/status-reconciler-status
+            - --status-path=s3://prow-storage/status-reconciler/status-reconciler-status
           volumeMounts:
             - name: github-token
               mountPath: /etc/github

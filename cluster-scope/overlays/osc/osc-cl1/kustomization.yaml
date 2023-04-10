@@ -38,6 +38,7 @@ resources:
 - ../../../base/core/namespaces/opf-jupyterhub-stage
 - ../../../base/core/namespaces/sandbox
 - ../../../base/core/namespaces/sostrades-namespace
+- ../../../base/core/serviceaccounts/argocd-manager
 - ../../../base/user.openshift.io/groups/cluster-admins
 - ../../../base/user.openshift.io/groups/cluster-readers
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator

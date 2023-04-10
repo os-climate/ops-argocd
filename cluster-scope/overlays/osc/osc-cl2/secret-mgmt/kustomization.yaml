@@ -6,6 +6,7 @@ resources:
   - kafka
   - kepler-monitoring
   - kubeflow
+  - odh-jupyterhub
   - odh-superset
   - odh-trino
   - openmetadata

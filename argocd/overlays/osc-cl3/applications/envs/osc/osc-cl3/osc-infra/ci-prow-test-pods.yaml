@@ -19,8 +19,8 @@ spec:
   project: osc-infra
   source:
     path: prow/overlays/osc-cl3-test-pods
-    repoURL: https://github.com/gregory-pereira/ops-argocd.git
-    targetRevision: setup-argocd-and-vault
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true

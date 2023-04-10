@@ -10,8 +10,8 @@ spec:
   project: cluster-management
   source:
     path: nfd/overlays/osc/osc-cl2
-    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
-    targetRevision: setup-argocd-and-vault
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
   # syncPolicy:
   #   automated:
   #     prune: true
