@@ -1,0 +1,30 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: deck
+  annotations:
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  host: prow.apps.osc-cl3.eqcq.p1.openshiftapps.com
+  to:
+    kind: Service
+    name: deck
+    weight: 100
+  port:
+    targetPort: main
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hook
+  annotations:
+    haproxy.router.openshift.io/timeout: 45s
+spec:
+  host: prow.apps.osc-cl3.eqcq.p1.openshiftapps.com
+  path: /hook
+  to:
+    kind: Service
+    name: hook
+    weight: 100
+  port:
+    targetPort: main

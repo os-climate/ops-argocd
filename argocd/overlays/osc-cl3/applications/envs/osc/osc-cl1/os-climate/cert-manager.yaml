@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+spec:
+  destination:
+    name: osc-cl1
+    namespace: openshift-ingress
+  project: os-climate
+  source:
+    path: cert-manager/overlays/osc/osc-cl1
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false

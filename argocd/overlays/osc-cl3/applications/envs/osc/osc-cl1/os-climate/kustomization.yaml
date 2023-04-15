@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - acme-operator.yaml
+  - cert-manager.yaml
   - cloudbeaver.yaml
   - cluster-resources.yaml
   - das.yaml
@@ -14,4 +15,5 @@ resources:
   - kfdefs.yaml
   - odh-operator.yaml
   - openmetadata.yaml
+  - reloader.yaml
   - training-operator.yaml

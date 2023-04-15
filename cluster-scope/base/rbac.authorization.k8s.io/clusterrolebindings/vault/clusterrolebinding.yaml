@@ -2,16 +2,16 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
-    app.kubernetes.io/instance: opf
+    app.kubernetes.io/instance: osc
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
     helm.sh/chart: vault-0.18.0
-  name: opf-vault-server-binding
+  name: osc-vault-server-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: system:auth-delegator
 subjects:
   - kind: ServiceAccount
-    name: opf-vault
+    name: osc-vault
     namespace: vault

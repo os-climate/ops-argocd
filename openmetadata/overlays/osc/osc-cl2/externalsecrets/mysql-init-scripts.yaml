@@ -8,7 +8,7 @@ metadata:
   name: mysql-init-scripts
 spec:
   secretStoreRef:
-    name: opf-vault-store
+    name: osc-vault-store
     kind: SecretStore
   refreshInterval: "1h"
   target:

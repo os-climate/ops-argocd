@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - opf-kafka.yaml
-  - opf-kafka-metrics-configmaps.yaml
-  - opf-kafdrop.yaml
-  - opf-kafdrop-route.yaml
-  - opf-kafdrop-service.yaml
+  - osc-kafka.yaml
+  - osc-kafka-metrics-configmaps.yaml
+  - osc-kafdrop.yaml
+  - osc-kafdrop-route.yaml
+  - osc-kafdrop-service.yaml

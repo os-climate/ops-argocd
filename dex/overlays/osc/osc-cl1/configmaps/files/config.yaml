@@ -46,6 +46,12 @@ staticClients:
       - https://das-odh-trino.apps.odh-cl1.apps.os-climate.org/callback
     secretEnv: DAS_SECRET
 
+  - id: openmetadata-airflow
+    name: openmetadata-airflow
+    redirectURIs:
+      - http://airflow-openmetadata.apps.odh-cl1.apps.os-climate.org/oauth-authorized/dex
+    secretEnv: OPENMETADATA_AIRFLOW_SECRET
+
   - id: grafana
     name: Grafana
     redirectURIs:
@@ -53,11 +59,6 @@ staticClients:
       - http://grafana-opf-monitoring.apps.odh-cl1.apps.os-climate.org/login/generic_oauth
     secretEnv: GRAFANA_SECRET
 
-  - id: openmetadata-airflow
-    name: openmetadata-airflow
-    redirectURIs:
-      - http://airflow-openmetadata.apps.odh-cl1.apps.os-climate.org/oauth-authorized/dex
-    secretEnv: OPENMETADATA_AIRFLOW_SECRET
 
 expiry:
   idTokens: "168h"

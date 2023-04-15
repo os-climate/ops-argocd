@@ -4,4 +4,5 @@ namespace: openshift-gitops
 resources:
   - cluster-management
   - default
+  - osc-infra
 nameSuffix: -osc-cl3

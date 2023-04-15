@@ -10,8 +10,8 @@ spec:
   project: os-climate
   source:
     path: cloudbeaver/overlays/osc/osc-cl1
-    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
-    targetRevision: setup-argocd-and-vault
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
   # syncPolicy:
   #   automated:
   #     prune: true

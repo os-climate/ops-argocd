@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ci-prow-prod-test-pods
+spec:
+  destination:
+    name: in-cluster
+    namespace: osc-ci-test-pods
+  ignoreDifferences:
+    - group: apps
+      jsonPointers:
+        - /spec/template/spec/containers/0/image
+      kind: Deployment
+    - group: batch
+      jsonPointers:
+        - /spec/jobTemplate/spec/template/spec/containers/0/image
+      kind: CronJob
+  project: osc-infra
+  source:
+    path: prow/overlays/osc-cl3-test-pods
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

@@ -6,8 +6,8 @@ spec:
   project: os-climate
   source:
     path: kepler/overlays/osc/osc-cl2
-    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
-    targetRevision: setup-argocd-and-vault
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
   destination:
     name: osc-cl2
     namespace: kepler-monitoring

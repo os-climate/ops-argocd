@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "OS Climate Prow"
+    openshift.io/description: "Project for execution of continous integration prow jobs."
+    op1st/docs: "https://github.com/kubernetes/test-infra/tree/master/prow#readme"
+  name: osc-ci-prow
+spec: {}

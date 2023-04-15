@@ -5,7 +5,7 @@ metadata:
   name: openmetadata-dependencies-config-envs
 spec:
   secretStoreRef:
-    name: opf-vault-store
+    name: osc-vault-store
     kind: SecretStore
   refreshInterval: "1h"
   target:

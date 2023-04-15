@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    app.kubernetes.io/instance: opf
+    app.kubernetes.io/instance: osc
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
-  name: opf-vault
+  name: osc-vault
   namespace: vault
 spec:
-  serviceName: opf-vault-internal
+  serviceName: osc-vault-internal
   podManagementPolicy: Parallel
   replicas: 3
   updateStrategy:
@@ -16,14 +16,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: vault
-      app.kubernetes.io/instance: opf
+      app.kubernetes.io/instance: osc
       component: server
   template:
     metadata:
       labels:
         helm.sh/chart: vault-0.19.0
         app.kubernetes.io/name: vault
-        app.kubernetes.io/instance: opf
+        app.kubernetes.io/instance: osc
         component: server
     spec:
       affinity:
@@ -32,15 +32,15 @@ spec:
             - labelSelector:
                 matchLabels:
                   app.kubernetes.io/name: vault
-                  app.kubernetes.io/instance: "opf"
+                  app.kubernetes.io/instance: "osc"
                   component: server
               topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 10
-      serviceAccountName: opf-vault
+      serviceAccountName: osc-vault
       volumes:
         - name: config
           configMap:
-            name: opf-vault-config
+            name: osc-vault-config
         - name: home
           emptyDir: {}
       containers:
@@ -90,7 +90,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: VAULT_CLUSTER_ADDR
-              value: "https://$(HOSTNAME).opf-vault-internal:8201"
+              value: "https://$(HOSTNAME).osc-vault-internal:8201"
             - name: HOME
               value: "/home/vault"
           volumeMounts:

@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: openshift-gitops
 nameSuffix: -osc-cl2
 resources:
+# - cluster-management # this is just nfd which not currently in use
 - os-climate
 - sostrades

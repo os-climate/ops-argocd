@@ -8,6 +8,6 @@ spec:
   config:
     retention.ms: 604800000
     segment.bytes: 1073741824
-  partitions: 1
+  partitions: 2
   replicas: 3
   topicName: ecb-fx

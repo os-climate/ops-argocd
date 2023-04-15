@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-rbac
+spec:
+  destination:
+    name: in-cluster
+    namespace: openshift-gitops
+  project: default
+  source:
+    path: argocd/overlays/osc-cl3/rbac
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - Validate=false

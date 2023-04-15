@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: osc-jh-idle-culler
+spec:
+  destination:
+    name: osc-cl2
+    namespace: odh-jupyterhub
+  project: os-climate
+  source:
+    path: jupyterhub-idle-culler/overlays/osc/osc-cl2
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - Validate=false
+  ignoreDifferences:
+    - group: apps.openshift.io
+      kind: DeploymentConfig
+      jsonPointers:
+        - /spec/template/spec/containers/0/image

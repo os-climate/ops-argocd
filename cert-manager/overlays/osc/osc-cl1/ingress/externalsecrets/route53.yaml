@@ -4,7 +4,7 @@ metadata:
     name: route53
 spec:
     secretStoreRef:
-        name: opf-vault-store
+        name: osc-vault-store
         kind: SecretStore
     target:
         name: route53

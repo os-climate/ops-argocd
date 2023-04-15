@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - opf-vault/service.yaml
-  - opf-vault-active/service.yaml
-  - opf-vault-internal/service.yaml
-  - opf-vault-standby/service.yaml
-  - opf-vault-ui/service.yaml
+  - osc-vault/service.yaml
+  - osc-vault-active/service.yaml
+  - osc-vault-internal/service.yaml
+  - osc-vault-standby/service.yaml
+  - osc-vault-ui/service.yaml

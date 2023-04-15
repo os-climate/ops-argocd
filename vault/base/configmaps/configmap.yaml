@@ -19,9 +19,9 @@ data:
 kind: ConfigMap
 metadata:
   labels:
-    app.kubernetes.io/instance: opf
+    app.kubernetes.io/instance: osc
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
     helm.sh/chart: vault-0.18.0
-  name: opf-vault-config
+  name: osc-vault-config
   namespace: vault

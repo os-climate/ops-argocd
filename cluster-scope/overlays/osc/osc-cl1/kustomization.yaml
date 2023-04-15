@@ -36,9 +36,11 @@ resources:
 - ../../../base/core/namespaces/openmetadata
 - ../../../base/core/namespaces/opf-dashboard
 - ../../../base/core/namespaces/opf-jupyterhub-stage
-- ../../../base/core/namespaces/opf-monitoring
 - ../../../base/core/namespaces/sandbox
 - ../../../base/core/namespaces/sostrades-namespace
+- ../../../base/core/serviceaccounts/argocd-manager
+- ../../../base/user.openshift.io/groups/cluster-admins
+- ../../../base/user.openshift.io/groups/cluster-readers
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/acme-operator
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader-k8s-annotations-exporter
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-readers
@@ -47,8 +49,10 @@ resources:
 - ../../../bundles/cert-manager
 - ../../../bundles/grafana-operator
 - ../../../bundles/kepler
+- ../../../bundles/opf-monitoring
 - ../../../bundles/opendatahub-operator-manual
 - ../../../bundles/openshift-pipelines
+- ../../../bundles/reloader
 - ../../../bundles/training-operator
 - ../common
 - apiserver
