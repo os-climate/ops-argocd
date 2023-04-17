@@ -20,7 +20,7 @@ patchesStrategicMerge:
   - groups/openshift-operators-view.yaml
   - groups/pachyderm-admins.yaml
   - groups/seldon-admin.yaml
-  # - operators.coreos.com/patches/nfd-sub-patch.yaml
+  - operators.coreos.com/patches/nfd-sub-patch.yaml
 resources:
 - ../../../base/core/configmaps/cluster-monitoring-config
 - ../../../base/core/configmaps/user-workload-monitoring-config
@@ -72,7 +72,7 @@ resources:
 - ../../../bundles/kepler
 - ../../../bundles/grafana-operator
 - ../../../bundles/kfp-tekton
-# - ../../../bundles/nfd
+- ../../../bundles/nfd
 - ../../../bundles/opf-monitoring
 - ../../../bundles/opendatahub-operator-manual
 - ../../../bundles/openshift-pipelines
