@@ -3,6 +3,9 @@ kind: Grafana
 metadata:
   name: grafana
 spec:
+  serviceAccount:
+    labels:
+      app.kubernetes.io/instance: cluster-resources-osc-cl2
   config:
     server:
       root_url: https://grafana-opf-monitoring.apps.odh-cl2.apps.os-climate.org
