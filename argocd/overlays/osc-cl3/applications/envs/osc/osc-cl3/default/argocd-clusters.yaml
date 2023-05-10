@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: argocd/overlays/osc-cl3/clusters
-    repoURL: https://github.com/Gregory-Pereira/ops-argocd.git
+    repoURL: https://github.com/os-climate/ops-argocd.git
     targetRevision: setup-argocd-and-vault
   syncPolicy:
     automated:
