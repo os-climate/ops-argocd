@@ -4,12 +4,10 @@ metadata:
   name: cluster-admins
 users:
   - redmikhail
-  - HumairAK
   - mmikhail
-  - hukhan
   - harshad16
   - rynofinn
   - MightyNerdEric
-  - Gregory-Pereira
   - erikerlandson
   - ryanaslett
+  - mbogoevici

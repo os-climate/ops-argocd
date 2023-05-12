@@ -4,5 +4,4 @@ metadata:
   name: grafana-editor
 users:
   - rootfs
-  - husky-parul
   - caldeirav
