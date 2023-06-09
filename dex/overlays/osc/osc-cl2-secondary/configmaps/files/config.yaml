@@ -25,6 +25,12 @@ staticClients:
       - https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org/callback
     secretEnv: OPENMETADATA_SECRET
 
+  - id: das
+    name: Dex Auth Service
+    redirectURIs:
+      - https://das-openmetadata.apps.odh-cl2.apps.os-climate.org/callback
+    secretEnv: DAS_SECRET
+
 expiry:
   idTokens: "168h"
 

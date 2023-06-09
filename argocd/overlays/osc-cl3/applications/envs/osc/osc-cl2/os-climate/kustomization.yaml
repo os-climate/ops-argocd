@@ -5,6 +5,7 @@ resources:
   - cloudbeaver.yaml
   - cluster-resources.yaml
   - das.yaml
+  - das-openmetadata.yaml
   - dex-secondary.yaml
   - dex.yaml
   - external-secrets.yaml
