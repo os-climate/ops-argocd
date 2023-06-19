@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    email: mmikhail@redhat.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-account-key
+    solvers:
+      - dns01:
+          route53:
+            accessKeyID: AKIAZNQ2HXS5NOCJNRWM
+            hostedZoneID: Z04490453K6YE8HM7YHJ6
+            region: us-east-1
+            secretAccessKeySecretRef:
+              key: secret-access-key
+              name: route53-aws-key
+        selector:
+          dnsZones:
+            - apps.os-climate.org

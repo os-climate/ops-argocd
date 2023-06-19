@@ -46,7 +46,8 @@ resources:
 - ../../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-readers
 - ../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../bundles/external-secrets-operator
-- ../../../bundles/cert-manager
+#- ../../../bundles/cert-manager
+- ../../../bundles/openshift-cert-manager-operator
 - ../../../bundles/grafana-operator
 - ../../../bundles/kepler
 - ../../../bundles/opf-monitoring
@@ -54,6 +55,7 @@ resources:
 - ../../../bundles/openshift-pipelines
 - ../../../bundles/reloader
 - ../../../bundles/training-operator
+- ../../../base/operator.openshift.io/certmanager/cluster
 - ../common
 - apiserver
 - configmaps/service-catalog-k8s-plugin.yaml
@@ -64,3 +66,4 @@ resources:
 - machineconfigs/kepler
 - nvidia-gpu
 - secret-mgmt
+- cert-manager
