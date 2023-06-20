@@ -47,7 +47,7 @@ resources:
 - ../../../base/rbac.authorization.k8s.io/clusterroles/acme-operator
 - ../../../bundles/external-secrets-operator
 #- ../../../bundles/cert-manager
-- ../../../bundles/openshift-cert-manager-operator
+- ../../../bundles/openshift-cert-manager
 - ../../../bundles/grafana-operator
 - ../../../bundles/kepler
 - ../../../bundles/opf-monitoring
