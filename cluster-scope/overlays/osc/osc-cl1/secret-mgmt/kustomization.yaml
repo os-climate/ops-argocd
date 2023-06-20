@@ -13,4 +13,4 @@ resources:
 - openshift-ingress
 - openshift-monitoring
 - opf-monitoring
-
+- openshift-cert-manager

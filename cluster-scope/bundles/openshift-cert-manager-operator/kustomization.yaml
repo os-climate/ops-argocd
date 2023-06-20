@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
   - ../../base/core/namespaces/openshift-cert-manager-operator
+  - ../../base/core/namespaces/openshift-cert-manager
   - ../../base/operators.coreos.com/subscriptions/openshift-cert-manager-operator
