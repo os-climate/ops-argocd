@@ -11,9 +11,7 @@ spec:
     solvers:
       - dns01:
           route53:
-            accessKeyIDSecretRef:
-              key: access-key-id
-              name: route53-aws-key
+            accessKeyID: AKIAZNQ2HXS5LH5RULMV
             hostedZoneID: Z04490453K6YE8HM7YHJ6
             region: us-east-1
             secretAccessKeySecretRef:
