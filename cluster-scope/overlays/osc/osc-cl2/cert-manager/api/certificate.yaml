@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-certs
+spec:
+  dnsNames:
+    - "api.odh-cl2.apps.os-climate.org"
+    - "*.apps.odh-cl2.apps.os-climate.org"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  secretName: api-certs
+  duration: 2160h0m0s
+  renewBefore: 360h0m0s
