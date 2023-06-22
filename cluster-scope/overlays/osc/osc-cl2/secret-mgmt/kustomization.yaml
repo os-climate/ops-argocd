@@ -15,3 +15,4 @@ resources:
   - openshift-monitoring
   - opf-monitoring
   - pachyderm
+  - openshift-cert-manager
