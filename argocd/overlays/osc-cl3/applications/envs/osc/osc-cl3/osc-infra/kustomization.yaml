@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - ci-prow-test-pods.yaml
   - ci-prow.yaml
+  - keycloak.yaml
   # - peribolos-as-a-service.yaml
   - vault.yaml
