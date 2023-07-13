@@ -1,0 +1,14 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-main
+spec:
+  destination:
+    name: osc-cl3
+    namespace: keycloak-main
+  project: os-climate
+  source:
+    path: keycloak/overlays/osc/osc-cl3
+    repoURL: https://github.com/os-climate/ops-argocd.git
+    targetRevision: keycloak-init
