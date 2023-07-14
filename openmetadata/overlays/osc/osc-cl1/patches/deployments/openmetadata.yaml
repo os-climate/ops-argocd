@@ -26,7 +26,7 @@ spec:
       # Decode it onto an emptydir volume which is read by OM.
       initContainers:
         - name: openmetadata-init
-          image: "quay.io/operate-first/om-server:1.0.5"
+          image: "quay.io/os-climate/om-server:1.0.5"
           volumeMounts:
             - mountPath: /openmetadata-1.0.5/jwt
               name: rsakeys
