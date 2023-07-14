@@ -21,7 +21,7 @@ spec:
       containers:
         - name: openmetadata
           securityContext: {}
-          image: "quay.io/operate-first/om-server:0.13.1"
+          image: "quay.io/os-climate/om-server:1.0.5"
           imagePullPolicy: Always
           ports:
             - name: http
@@ -47,6 +47,8 @@ spec:
           env:
             - name: OPENMETADATA_CLUSTER_NAME
               value: "openmetadata"
+            - name: OM_URI
+              value: "http://openmetadata:8585"
             - name: LOG_LEVEL
               value: "INFO"
             - name: SERVER_HOST
@@ -58,7 +60,7 @@ spec:
             - name: AUTHENTICATION_PROVIDER
               value: "basic"
             - name: AUTHENTICATION_PUBLIC_KEYS
-              value: "[http://openmetadata:8585/api/v1/config/jwks]"
+              value: "[http://openmetadata:8585/api/v1/system/config/jwks]"
             - name: AUTHENTICATION_AUTHORITY
               value: "https://accounts.google.com"
             - name: AUTHENTICATION_CLIENT_ID
@@ -106,6 +108,8 @@ spec:
               value: "9200"
             - name: ELASTICSEARCH_SCHEME
               value: "http"
+            - name: ELASTICSEARCH_INDEX_MAPPING_LANG
+              value: "EN"
             - name: DB_HOST
               value: "mysql"
             - name: DB_PORT
@@ -125,7 +129,11 @@ spec:
               value: "mysql"
             - name: DB_USE_SSL
               value: "false"
-            - name: AIRFLOW_HOST
+            - name: PIPELINE_SERVICE_CLIENT_CLASS_NAME
+              value: "org.openmetadata.service.clients.pipeline.airflow.AirflowRESTClient"
+            - name: PIPELINE_SERVICE_IP_INFO_ENABLED
+              value: "false"
+            - name: PIPELINE_SERVICE_CLIENT_ENDPOINT
               value: "http://openmetadata-dependencies-web.default.svc.cluster.local:8080"
             - name: AIRFLOW_USERNAME
             - name: AIRFLOW_PASSWORD
@@ -133,9 +141,11 @@ spec:
                 secretKeyRef:
                   name: airflow-secrets
                   key: openmetadata-airflow-password
-            - name: AIRFLOW_VERIFY_SSL
+            - name: PIPELINE_SERVICE_CLIENT_VERIFY_SSL
               value: "no-ssl"
-            - name: AIRFLOW_SSL_CERT_PATH
+            - name: PIPELINE_SERVICE_CLIENT_HOST_IP
+              value: ""            
+            - name: PIPELINE_SERVICE_CLIENT_SSL_CERT_PATH
               value: "/no/path"
             - name: SERVER_HOST_API_URL
               value: "http://openmetadata.default.svc.cluster.local:8585/api"
