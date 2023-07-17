@@ -49,7 +49,7 @@ spec:
             - name: AUTHENTICATION_PROVIDER
               value: custom-oidc
             - name: AUTHENTICATION_PUBLIC_KEYS
-              value: '[https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/config/jwks]'
+              value: '[https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/system/config/jwks]'
             - name: AUTHENTICATION_AUTHORITY
               value: "https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org"
             - name: AUTHENTICATION_CLIENT_ID
