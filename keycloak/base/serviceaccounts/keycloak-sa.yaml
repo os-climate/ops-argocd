@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: keycloak
+  # FIXME: Annotations are lifted directly from Dex. Enable if needed. Otherwise, remove.
+  # annotations:
+  #   kustomize.config.k8s.io/behavior: replace
+  #   serviceaccounts.openshift.io/oauth-redirecturi.keycloak: "callback"
+  #   serviceaccounts.openshift.io/oauth-redirectreference.keycloak: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"keycloak"}}'

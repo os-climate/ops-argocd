@@ -1,0 +1,18 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: postgresql
+spec:
+  secretStoreRef:
+    name: osc-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: postgresql
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+    template:
+      engineVersion: v2
+  dataFrom:
+    - extract:
+        key: osc/osc-cl3/postgresql/postgresql

@@ -1,0 +1,18 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: keycloak-config
+spec:
+  secretStoreRef:
+    name: osc-vault-store
+    kind: SecretStore
+  refreshInterval: "1h"
+  target:
+    name: keycloak-config
+    creationPolicy: 'Owner'
+    deletionPolicy: "Retain"
+    template:
+      engineVersion: v2
+  dataFrom:
+    - extract:
+        key: osc/osc-cl3/keycloak/keycloak-config

@@ -1,0 +1,79 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  labels:
+    deployment: keycloak
+spec:
+  selector:
+    matchLabels:
+      deployment: keycloak
+  template:
+    metadata:
+      labels:
+        deployment: keycloak
+    spec:
+      containers:
+          name: keycloak
+          image: quay.io/keycloak/keycloak:21.1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /opt/keycloak/data
+              name: data
+            # TODO: Enable ssl volumeMount once ssl certs have been prepared
+            # - name: ssl
+            #   mountPath: /etc/ssl/certs/ca.crt
+            #   subPath: ca.crt
+            # - name: ssl
+            #   mountPath: /etc/ssl/certs/namespace
+            #   subPath: namespace
+            # - name: ssl
+            #   mountPath: /etc/ssl/certs/service-ca.crt
+            #   subPath: service-ca.crt
+            # - name: ssl
+            #   mountPath: /etc/ssl/certs/token
+            #   subPath: token
+          resources:
+            limits:
+              # Resource limits based on Dex limits
+              cpu: 500m
+              memory: 512Mi
+          envFrom:
+            - secretRef:
+                name: keycloak-config
+          env:
+            - name: KC_DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: POSTGRESQL_USER
+            - name: KC_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql
+                  key: POSTGRESQL_PASSWORD
+            - name: KC_DB
+              value: postgres
+            - name: KC_DB_URL
+              value: 'jdbc:postgresql://postgresql/keycloak'
+      volumes:
+        - name: data
+          configMap:
+            name: keycloak
+        # TODO: Enable ssl volume once ssl certs have been prepared
+        # - name: ssl
+        #   secret:
+        #     secretName: keycloak-sa
+        #     items:
+        #       - key: ca.crt
+        #         path: ca.crt
+        #       - key: namespace
+        #         path: namespace
+        #       - key: service-ca.crt
+        #         path: service-ca.crt
+        #       - key: token
+        #         path: token
