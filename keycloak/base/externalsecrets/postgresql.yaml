@@ -15,4 +15,4 @@ spec:
       engineVersion: v2
   dataFrom:
     - extract:
-        key: osc/osc-cl3/postgresql/postgresql
+        key: osc/osc-cl3/keycloak/postgresql
