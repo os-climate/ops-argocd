@@ -14,7 +14,7 @@ spec:
         deployment: postgresql
     spec:
       containers:
-          name: postgresql
+        - name: postgresql
           image: docker.io/postgres:13
           imagePullPolicy: IfNotPresent
           ports:

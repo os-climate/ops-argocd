@@ -15,7 +15,7 @@ spec:
         deployment: keycloak
     spec:
       containers:
-          name: keycloak
+        - name: keycloak
           image: quay.io/keycloak/keycloak:21.1.1
           imagePullPolicy: Always
           ports:
