@@ -5,6 +5,7 @@ namespace: keycloak-main
 resources:
   - deployments
   - externalsecrets
+  - persistentvolumeclaims
   - routes
   - secrets
   - serviceaccounts

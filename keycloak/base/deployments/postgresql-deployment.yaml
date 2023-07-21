@@ -4,6 +4,12 @@ kind: Deployment
 metadata:
   name: postgresql
   namespace: keycloak-main
+  labels:
+    deployment: postgresql
+    app: keycloak-database
+    app.kubernetes.io/component: keycloak-database
+    app.kubernetes.io/instance: keycloak-database
+    template: postgresql-persistent-template
 spec:
   selector:
     matchLabels:

@@ -5,6 +5,7 @@ metadata:
   name: keycloak
   labels:
     deployment: keycloak
+    application: keycloak
 spec:
   selector:
     matchLabels:
@@ -13,17 +14,20 @@ spec:
     metadata:
       labels:
         deployment: keycloak
+        application: keycloak-main
     spec:
       containers:
         - name: keycloak
           image: quay.io/keycloak/keycloak:21.1.1
           imagePullPolicy: Always
+          args:
+            - start-dev
           ports:
             - containerPort: 8080
               protocol: TCP
           volumeMounts:
             - mountPath: /opt/keycloak/data
-              name: data
+              name: empty
             # TODO: Enable ssl volumeMount once ssl certs have been prepared
             # - name: ssl
             #   mountPath: /etc/ssl/certs/ca.crt
@@ -61,9 +65,8 @@ spec:
             - name: KC_DB_URL
               value: 'jdbc:postgresql://postgresql/keycloak'
       volumes:
-        - name: data
-          configMap:
-            name: keycloak
+        - name: empty
+          emptyDir: {}
         # TODO: Enable ssl volume once ssl certs have been prepared
         # - name: ssl
         #   secret:
