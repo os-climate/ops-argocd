@@ -119,6 +119,8 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
+            - name: AIRFLOW__LOGGING__LOGGING_LEVEL
+              value: INFO
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
