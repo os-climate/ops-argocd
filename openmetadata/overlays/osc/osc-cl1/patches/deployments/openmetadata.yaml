@@ -62,8 +62,6 @@ spec:
               value: '[ingestion-bot]'
             - name: AUTHORIZER_PRINCIPAL_DOMAIN
               value: open-metadata.org
-            - name: PIPELINE_SERVICE_CLIENT_ENDPOINT
-              value: "http://airflow.openmetadata.svc.cluster.local:8080"
             - name: AIRFLOW_AUTH_PROVIDER
               value: openmetadata
             - name: AIRFLOW_USERNAME
