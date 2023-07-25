@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: postgresql
-          image: docker.io/postgres:13
+          image: quay.io/os-climate/postgresql:10-kc
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5432

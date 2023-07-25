@@ -21,7 +21,7 @@ spec:
           image: quay.io/keycloak/keycloak:21.1.1
           imagePullPolicy: Always
           args:
-            - start-dev
+            - start --hostname-strict=false
           ports:
             - containerPort: 8080
               protocol: TCP
