@@ -134,7 +134,7 @@ spec:
             - name: PIPELINE_SERVICE_IP_INFO_ENABLED
               value: "false"
             - name: PIPELINE_SERVICE_CLIENT_ENDPOINT
-              value: "http://openmetadata-dependencies-web.default.svc.cluster.local:8080"
+              value: "http://airflow.openmetadata.svc.cluster.local:8080"
             - name: AIRFLOW_USERNAME
             - name: AIRFLOW_PASSWORD
               valueFrom:
