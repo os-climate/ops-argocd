@@ -2,11 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: openmetadata
 resources:
-- ../../../base/openmetadata-dependencies
-- ../../../base/openmetadata
-- externalsecrets
-- configmaps
-
+  - ../../../base/openmetadata-dependencies
+  - ../../../base/openmetadata
+  - externalsecrets
+  - configmaps
 patchesStrategicMerge:
   - patches/deployments/openmetadata.yaml
   - patches/deployments/mysql.yaml
@@ -16,8 +15,7 @@ patchesStrategicMerge:
   - patches/deployments/airflow-sync-users.yaml
   - patches/deployments/airflow-scheduler.yaml
   - patches/deployments/airflow-db-migrations.yaml
-
 images:
   - name: quay.io/operate-first/om-ingestion
     newName: quay.io/os-climate/ingestion
-    newTag: 0.13.1.trino.320
+    newTag: 1.0.5.trino.326
