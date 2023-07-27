@@ -26,21 +26,21 @@ spec:
       # Decode it onto an emptydir volume which is read by OM.
       initContainers:
         - name: openmetadata-init
-          image: "quay.io/operate-first/om-server:0.13.1"
+          image: "quay.io/os-climate/om-server:1.0.5"
           volumeMounts:
-            - mountPath: /openmetadata-0.13.1/jwt
+            - mountPath: /openmetadata-1.0.5/jwt
               name: rsakeys
             - mountPath: /tmp/rsakeys
               name: openmetadata-auth
-          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-0.13.1/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-0.13.1/jwt/public_key.der"]
+          command: ["/bin/sh", "-c", "base64 -d /tmp/rsakeys/private_key.der > /openmetadata-1.0.5/jwt/private_key.der && base64 -d /tmp/rsakeys/public_key.der > /openmetadata-1.0.5/jwt/public_key.der"]
       containers:
         - name: openmetadata
           volumeMounts:
-            - mountPath: /openmetadata-0.13.1/logs
+            - mountPath: /openmetadata-1.0.5/logs
               name: logs
-            - mountPath: /openmetadata-0.13.1/jwt
+            - mountPath: /openmetadata-1.0.5/jwt
               name: rsakeys
-            - mountPath: /openmetadata-0.13.1/conf/
+            - mountPath: /openmetadata-1.0.5/conf/
               name: openmetadata-config
           envFrom:
             - secretRef:
@@ -49,7 +49,7 @@ spec:
             - name: AUTHENTICATION_PROVIDER
               value: custom-oidc
             - name: AUTHENTICATION_PUBLIC_KEYS
-              value: '[https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/config/jwks]'
+              value: '[https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/system/config/jwks]'
             - name: AUTHENTICATION_AUTHORITY
               value: "https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org"
             - name: AUTHENTICATION_CLIENT_ID
@@ -62,8 +62,6 @@ spec:
               value: '[ingestion-bot]'
             - name: AUTHORIZER_PRINCIPAL_DOMAIN
               value: open-metadata.org
-            - name: AIRFLOW_HOST
-              value: "http://airflow.openmetadata.svc.cluster.local:8080"
             - name: AIRFLOW_AUTH_PROVIDER
               value: openmetadata
             - name: AIRFLOW_USERNAME
@@ -84,9 +82,9 @@ spec:
             - name: SERVER_HOST_API_URL
               value: "http://openmetadata.openmetadata.svc.cluster.local:8585/api"
             - name: RSA_PUBLIC_KEY_FILE_PATH
-              value: /openmetadata-0.13.1/jwt/public_key.der
+              value: /openmetadata-1.0.5/jwt/public_key.der
             - name: RSA_PRIVATE_KEY_FILE_PATH
-              value: /openmetadata-0.13.1/jwt/private_key.der
+              value: /openmetadata-1.0.5/jwt/private_key.der
             - name: DB_USER_PASSWORD
               valueFrom:
                 secretKeyRef:

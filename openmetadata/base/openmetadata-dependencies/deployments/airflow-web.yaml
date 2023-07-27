@@ -32,7 +32,7 @@ spec:
       serviceAccountName: airflow
       initContainers:
         - name: check-db
-          image: quay.io/os-climate/ingestion:0.13.1
+          image: quay.io/os-climate/ingestion:1.0.5
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -62,8 +62,12 @@ spec:
               mountPath: /opt/airflow/dags
             - name: logs-data
               mountPath: /opt/airflow/logs
+            - name: pod-template
+              mountPath: /opt/airflow/pod_templates/pod_template.yaml
+              subPath: pod_template.yaml
+              readOnly: true
         - name: wait-for-db-migrations
-          image: quay.io/os-climate/ingestion:0.13.1
+          image: quay.io/os-climate/ingestion:1.0.5
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
@@ -91,9 +95,13 @@ spec:
               mountPath: /opt/airflow/dags
             - name: logs-data
               mountPath: /opt/airflow/logs
+            - name: pod-template
+              mountPath: /opt/airflow/pod_templates/pod_template.yaml
+              subPath: pod_template.yaml
+              readOnly: true
       containers:
         - name: airflow-web
-          image: quay.io/os-climate/ingestion:0.13.1
+          image: quay.io/os-climate/ingestion:1.0.5
           imagePullPolicy: IfNotPresent
           resources: {}
           ports:
@@ -111,6 +119,8 @@ spec:
                 secretKeyRef:
                   name: airflow-mysql-secrets
                   key: airflow-mysql-password
+            - name: AIRFLOW__LOGGING__LOGGING_LEVEL
+              value: INFO
             - name: CONNECTION_CHECK_MAX_COUNT
               value: "0"
           command:
@@ -144,6 +154,10 @@ spec:
               mountPath: /opt/airflow/dags
             - name: logs-data
               mountPath: /opt/airflow/logs
+            - name: pod-template
+              mountPath: /opt/airflow/pod_templates/pod_template.yaml
+              subPath: pod_template.yaml
+              readOnly: true
             - name: webserver-config
               mountPath: /opt/airflow/webserver_config.py
               subPath: webserver_config.py
@@ -159,3 +173,6 @@ spec:
           configMap:
             name: airflow-webserver-config
             defaultMode: 0644
+        - name: pod-template
+          configMap:
+            name: airflow-pod-template
