@@ -49,13 +49,13 @@ spec:
             - name: AUTHENTICATION_PROVIDER
               value: custom-oidc
             - name: AUTHENTICATION_PUBLIC_KEYS
-              value: '[https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/system/config/jwks]'
+              value: '[https://dex-dex-secondary.apps.odh-cl2.apps.os-climate.org/keys, http://openmetadata.openmetadata.svc.cluster.local:8585/api/v1/system/config/jwks]'
             - name: AUTHENTICATION_AUTHORITY
-              value: "https://dex-dex-secondary.apps.odh-cl1.apps.os-climate.org"
+              value: "https://dex-dex-secondary.apps.odh-cl2.apps.os-climate.org"
             - name: AUTHENTICATION_CLIENT_ID
               value: openmetadata
             - name: AUTHENTICATION_CALLBACK_URL
-              value: https://openmetadata-openmetadata.apps.odh-cl1.apps.os-climate.org/callback
+              value: https://openmetadata-openmetadata.apps.odh-cl2.apps.os-climate.org/callback
             - name: AUTHORIZER_ADMIN_PRINCIPALS
               value: '[humair88]'
             - name: AUTHORIZER_INGESTION_PRINCIPALS
