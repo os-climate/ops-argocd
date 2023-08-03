@@ -13,4 +13,4 @@ spec:
     targetPort: 8443
   tls:
     termination: reencrypt
-  insecureEdgeTerminationPolicy: Redirect
+    insecureEdgeTerminationPolicy: Redirect
