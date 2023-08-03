@@ -2,11 +2,15 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: keycloak
-  namespace: keycloak-main
+  labels:
+    app: keycloak
+    deployment: keycloak
 spec:
   to:
     kind: Service
     name: keycloak
+  port:
+    targetPort: 8443
   tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect
+    termination: reencrypt
+  insecureEdgeTerminationPolicy: Redirect
