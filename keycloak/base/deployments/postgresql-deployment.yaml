@@ -65,7 +65,7 @@ spec:
           volumeMounts:
             - name: keycloak-postgresql-claim
               mountPath: /var/lib/pgsql/data
-          restartPolicy: Always
+  restartPolicy: Always
   strategy:
     type: RollingUpdate
     rollingUpdate:
