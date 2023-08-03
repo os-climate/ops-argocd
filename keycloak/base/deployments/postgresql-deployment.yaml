@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: keycloak-postgresql
-  namespace: keycloak-main
   labels:
     app: keycloak-postgresql
     deployment: keycloak-postgresql
@@ -22,51 +21,51 @@ spec:
           persistentVolumeClaim:
             claimName: keycloak-postgresql-claim
       containers:
-      - name: postgresql
-        readinessProbe:
-          exec:
-            command:
-              - /bin/sh
-              - '-c'
-              - >-
-                psql -h 127.0.0.1 -U $POSTGRESQL_USER -q -d
-                $POSTGRESQL_DATABASE -c 'SELECT 1'
-          initialDelaySeconds: 5
-          timeoutSeconds: 1
-          periodSeconds: 10
-          successThreshold: 1
-          failureThreshold: 3
-        image: quay.io/os-climate/postgresql:10-kc
-        ports:
-        - containerPort: 5432
-          protocol: TCP
-        env:
-        - name: POSTGRESQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db-secret
-              key: POSTGRESQL_DATABASE
-        - name: POSTGRESQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db-secret
-              key: POSTGRESQL_USER
-        - name: POSTGRESQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db-secret
-              key: POSTGRESQL_PASSWORD
-        - name: POSTGRESQL_ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db-secret
-              key: POSTGRESQL_ADMIN_PASSWORD
-        imagePullPolicy: Always
-        securityContext: {}
-        volumeMounts:
-          - name: keycloak-postgresql-claim
-            mountPath: /var/lib/pgsql/data
-      restartPolicy: Always
+        - name: postgresql
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - '-c'
+                - >-
+                  psql -h 127.0.0.1 -U $POSTGRESQL_USER -q -d
+                  $POSTGRESQL_DATABASE -c 'SELECT 1'
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          image: quay.io/os-climate/postgresql:10-kc
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          env:
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: POSTGRESQL_DATABASE
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: POSTGRESQL_USER
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: POSTGRESQL_PASSWORD
+            - name: POSTGRESQL_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: POSTGRESQL_ADMIN_PASSWORD
+          imagePullPolicy: Always
+          securityContext: {}
+          volumeMounts:
+            - name: keycloak-postgresql-claim
+              mountPath: /var/lib/pgsql/data
+          restartPolicy: Always
   strategy:
     type: RollingUpdate
     rollingUpdate:

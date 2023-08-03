@@ -24,98 +24,98 @@ spec:
     spec:
       serviceAccountName: keycloak
       volumes:
-       - name: cert-volume
-         secret:
-           secretName: keycloak-service
-      containers:
-      - name: keycloak
-        image: "quay.io/keycloak/keycloak:22.0.1"
-        imagePullPolicy: Always
-        args: 
-          - start
-          - '--hostname-strict=false'
-          - '--https-certificate-file'
-          - /etc/cert-volume/tls.crt
-          - '--https-certificate-key-file'
-          - /etc/cert-volume/tls.key
-          - '--cache-stack'
-          - kubernetes
-          - '--db'
-          - postgres
-          - '--db-url'
-          - >-
-            jdbc:postgresql://keycloak-postgresql.$(NAMESPACE).svc.cluster.local:5432/keycloak
-          - '--db-username'
-          - '${POSTGRESQL_USER}'
-          - '--db-password'
-          - '${POSTGRESQL_PASSWORD}'
-          - '--health-enabled'
-          - 'true'
-          - '--metrics-enabled'
-          - 'true'
-          - '--proxy'
-          - reencrypt
-        volumeMounts:
         - name: cert-volume
-          mountPath: /etc/cert-volume
-          readOnly: true
-        ports:
-        - name: https
-          containerPort: 8443
-          protocol: TCP
-        resources:
-          limits:
-            memory: 1Gi
-          requests:
-            cpu: 500m
-            memory: 1Gi
-        livenessProbe:
-          httpGet:
-            path: "/health/live"
-            port: 8443
-            scheme: HTTPS
-          initialDelaySeconds: 45
-          timeoutSeconds: 1
-          periodSeconds: 30
-          successThreshold: 1
-          failureThreshold: 12
-        readinessProbe:
-          httpGet:
-            path: "/health/ready"
-            port: 8443
-            scheme: HTTPS
-          initialDelaySeconds: 60
-          timeoutSeconds: 1
-          periodSeconds: 10
-          successThreshold: 2
-          failureThreshold: 3
-        env:
-        - name: POSTGRESQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db-secret
-              key: POSTGRESQL_USER
-        - name: POSTGRESQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: keycloak-db-secret
-              key: POSTGRESQL_PASSWORD
-        - name: KEYCLOAK_ADMIN
-          valueFrom:
-            secretKeyRef:
-              name: kc-admin-creds
-              key: KEYCLOAK_ADMIN
-        - name: KEYCLOAK_ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: kc-admin-creds
-              key: KEYCLOAK_ADMIN_PASSWORD
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: metadata.namespace
-        - name: JAVA_OPTS_APPEND
-          value: >-
-            -Djgroups.dns.query=keycloak-headless.$(NAMESPACE).svc.cluster.local
-        securityContext: {}
+          secret:
+            secretName: keycloak-service
+      containers:
+        - name: keycloak
+          image: "quay.io/keycloak/keycloak:22.0.1"
+          imagePullPolicy: Always
+          args:
+            - start
+            - '--hostname-strict=false'
+            - '--https-certificate-file'
+            - /etc/cert-volume/tls.crt
+            - '--https-certificate-key-file'
+            - /etc/cert-volume/tls.key
+            - '--cache-stack'
+            - kubernetes
+            - '--db'
+            - postgres
+            - '--db-url'
+            - >-
+              jdbc:postgresql://keycloak-postgresql.$(NAMESPACE).svc.cluster.local:5432/keycloak
+            - '--db-username'
+            - '${POSTGRESQL_USER}'
+            - '--db-password'
+            - '${POSTGRESQL_PASSWORD}'
+            - '--health-enabled'
+            - 'true'
+            - '--metrics-enabled'
+            - 'true'
+            - '--proxy'
+            - reencrypt
+          volumeMounts:
+            - name: cert-volume
+              mountPath: /etc/cert-volume
+              readOnly: true
+          ports:
+            - name: https
+              containerPort: 8443
+              protocol: TCP
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 1Gi
+          livenessProbe:
+            httpGet:
+              path: "/health/live"
+              port: 8443
+              scheme: HTTPS
+            initialDelaySeconds: 45
+            timeoutSeconds: 1
+            periodSeconds: 30
+            successThreshold: 1
+            failureThreshold: 12
+          readinessProbe:
+            httpGet:
+              path: "/health/ready"
+              port: 8443
+              scheme: HTTPS
+            initialDelaySeconds: 60
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 2
+            failureThreshold: 3
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: POSTGRESQL_USER
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-db-secret
+                  key: POSTGRESQL_PASSWORD
+            - name: KEYCLOAK_ADMIN
+              valueFrom:
+                secretKeyRef:
+                  name: kc-admin-creds
+                  key: KEYCLOAK_ADMIN
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kc-admin-creds
+                  key: KEYCLOAK_ADMIN_PASSWORD
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: JAVA_OPTS_APPEND
+              value: >-
+                -Djgroups.dns.query=keycloak-headless.$(NAMESPACE).svc.cluster.local
+          securityContext: {}
