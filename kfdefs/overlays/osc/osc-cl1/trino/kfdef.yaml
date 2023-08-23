@@ -34,4 +34,4 @@ spec:
   repos:
     - name: manifests
       uri: https://github.com/os-climate/odh-manifests/tarball/osc-cl1-v1.1.2
-  version: v1.1.3
+  version: v1.1.4
