@@ -5,10 +5,10 @@ metadata:
   name: keycloak-main
 spec:
   destination:
-    name: osc-cl3
+    name: in-cluster
     namespace: keycloak-main
-  project: os-climate
+  project: osc-infra
   source:
     path: keycloak/overlays/osc/osc-cl3
     repoURL: https://github.com/os-climate/ops-argocd.git
-    targetRevision: keycloak-init
+    targetRevision: main

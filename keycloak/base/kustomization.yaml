@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployments
+  - externalsecrets
+  - persistentvolumeclaims
+  - routes
+  - serviceaccounts
+  - services
+commonLabels:
+  app.kubernetes.io/name: keycloak
+  app.kubernetes.io/component: keycloak
+  app.kubernetes.io/part-of: auth
