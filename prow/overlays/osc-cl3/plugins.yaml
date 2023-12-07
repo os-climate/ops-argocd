@@ -37,7 +37,7 @@ external_plugins:
 lgtm:
   - repos:
       - os-climate
-      
+
 approve:
   - repos:
       - os-climate

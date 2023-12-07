@@ -68,7 +68,7 @@ spec:
               mountPath: /opt/airflow/logs
       containers:
         - name: db-migrations
-          image: quay.io/os-climate/ingestion:1.0.5	
+          image: quay.io/os-climate/ingestion:1.0.5
           imagePullPolicy: IfNotPresent
           resources: {}
           envFrom:

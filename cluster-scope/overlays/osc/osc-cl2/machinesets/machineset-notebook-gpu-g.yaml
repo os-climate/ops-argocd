@@ -6,7 +6,7 @@ metadata:
   labels:
     machine.openshift.io/cluster-api-cluster: odh-cl2-jlxqf
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: odh-cl2-jlxqf
@@ -37,7 +37,7 @@ spec:
             region: us-east-1
           credentialsSecret:
             name: aws-cloud-credentials
-          instanceType: g4dn.xlarge
+          instanceType: g5.2xlarge
           blockDevices:
             - ebs:
                 encrypted: true

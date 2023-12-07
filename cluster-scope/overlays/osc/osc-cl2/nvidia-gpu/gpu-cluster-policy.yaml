@@ -24,7 +24,6 @@ spec:
       nlsEnabled: false
     repoConfig:
       configMapName: ''
-    use_ocp_driver_toolkit: true
     virtualTopology:
       config: ''
   devicePlugin: {}
