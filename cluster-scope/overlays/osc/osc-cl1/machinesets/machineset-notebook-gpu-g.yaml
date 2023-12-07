@@ -31,7 +31,7 @@ spec:
             region: us-east-1
           credentialsSecret:
             name: aws-cloud-credentials
-          instanceType: g4dn.2xlarge
+          instanceType: g5.2xlarge
           metadata:
             creationTimestamp: null
           blockDevices:

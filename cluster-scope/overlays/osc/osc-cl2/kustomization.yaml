@@ -21,6 +21,7 @@ patchesStrategicMerge:
   - groups/pachyderm-admins.yaml
   - groups/seldon-admin.yaml
   - operators.coreos.com/patches/nfd-sub-patch.yaml
+  - operators.coreos.com/patches/strimzi-kafka-operator.yaml
 resources:
 - ../../../base/core/configmaps/cluster-monitoring-config
 - ../../../base/core/configmaps/user-workload-monitoring-config
