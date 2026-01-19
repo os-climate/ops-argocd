@@ -3,7 +3,7 @@ exclude: scripts|argocd/overlays/dev/configs|argocd/overlays/moc-infra/configs|.
 
 repos:
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: remove-tabs
 
@@ -22,7 +22,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         files: \.(yaml|yml)$
